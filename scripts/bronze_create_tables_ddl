@@ -52,3 +52,20 @@ subcat VARCHAR(50),
 maintenance VARCHAR(20)
 );
 
+CREATE TABLE DataWarehouse.bronze.bronze_load_log (
+	log_id int IDENTITY(1,1) NOT NULL,
+	job_name nvarchar(100) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+	step_name nvarchar(255) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+	status nvarchar(50) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+	message nvarchar(MAX) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+	start_time datetime DEFAULT getdate() NULL,
+	end_time datetime NULL,
+	total_time datetime NULL,
+	error_message nvarchar(MAX) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+	error_number int NULL,
+	error_line int NULL,
+	CONSTRAINT PK__bronze_l__9E2397E090F43607 PRIMARY KEY (log_id)
+);
+
+
+
